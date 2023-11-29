@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { IndexComponent } from './pages/index/index.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
