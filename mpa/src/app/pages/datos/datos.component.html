@@ -2,11 +2,11 @@
 
 <table>
     <tbody>
-        @for (datum of data; track datum.id) {
+        @for (datum of data; track datum.Game_Id) {
           <tr>
-              <th> {{  datum[Name]  }}  </th>
-            <td> {{  datum[Platforms]  }}  </td>
-            <td> {{  datum[Total_Runs]  }} </td>
+              <th> {{  datum["Name"]  }}  </th>
+            <td> {{  datum["Platforms"]  }}  </td>
+            <td> {{  datum["Total_Runs"]  }} </td>
           </tr>
         } @empty {
           <tr>
