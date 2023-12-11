@@ -5,6 +5,6 @@ import { DatosComponent } from './pages/datos/datos.component';
 
 export const routes: Routes = [
     { path: '', component: IndexComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'details', component:DatosComponent}
+    { path: 'datos', component: DatosComponent },
+    { path: 'contacto', component:AboutComponent}
 ];

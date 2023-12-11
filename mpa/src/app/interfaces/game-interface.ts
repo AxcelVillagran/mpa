@@ -1,4 +1,4 @@
-export interface Root {
+export interface Game {
     Abbreviation: string
     Game_Id: string
     Genres: string

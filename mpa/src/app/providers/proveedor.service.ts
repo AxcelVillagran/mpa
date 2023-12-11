@@ -6,10 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProveedorService {
 
-  private URL: string = 'https://mpaaxcel-default-rtdb.firebaseio.com/collection.json';
+  private games: string = 'https://mpaaxcel-default-rtdb.firebaseio.com/collection.json';
+  private category: string = ''; //COLOCAR URL DE JSON DE CATEGORIA
 
   constructor(private http:HttpClient) { }
-  getResponse() {
-    return this.http.get(this.URL);
+  getGames() {
+    return this.http.get(this.games);
+  }
+  getCategories(){
+    return this.http.get(this.category);
   }
 }

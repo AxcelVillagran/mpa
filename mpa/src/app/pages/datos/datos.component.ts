@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from  '@angular/common/http';
-import {Root} from '../../interfaces/interfaz-generada';
+import {Game} from '../../interfaces/game-interface';
 import {ProveedorService } from '../../providers/proveedor.service'
+import { Category } from '../../interfaces/category-interface';
 
 
 @Component({
@@ -14,12 +15,13 @@ import {ProveedorService } from '../../providers/proveedor.service'
   styleUrl: './datos.component.css'
 })
 export class DatosComponent {
-  public data : Root[] = [];
+  public games : Game[] = [];
+  public categories : Category[] = [];
   constructor(private dataProvider: ProveedorService) { }
   ngOnInit() {
-    this.dataProvider.getResponse().subscribe((response) => { 
-      let dataArray = (response as Root[]); 
-      this.data = dataArray.slice(0,10);
+    this.dataProvider.getGames().subscribe((response) => { 
+      let dataArray = (response as Game[]); 
+      this.games = dataArray.slice(0,10);
     })
   }
 }
