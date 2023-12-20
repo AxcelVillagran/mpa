@@ -2,7 +2,7 @@
 
 <table>
     <tbody class="text-white">
-        @for (datum of data; track datum.Game_Id) {
+        @for (datum of games; track datum.Game_Id) {
           <tr>
               <th> {{  datum["Name"]  }}  </th>
             <td> {{  datum["Platforms"]  }}  </td>
