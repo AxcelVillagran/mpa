@@ -22,4 +22,14 @@
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #ec6090;
     --bs-btn-disabled-border-color: #ec6090;
+    font-size: 14px;    
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
 }
