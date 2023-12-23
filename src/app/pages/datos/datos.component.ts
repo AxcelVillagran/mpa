@@ -21,7 +21,7 @@ export class DatosComponent {
   ngOnInit() {
     this.dataProvider.getGames().subscribe((response) => { 
       let dataArray = (response as Game[]); 
-      this.games = dataArray.slice(0,15);
+      this.games = dataArray.slice(0,20);
     })
   }
   btnDatos(){
