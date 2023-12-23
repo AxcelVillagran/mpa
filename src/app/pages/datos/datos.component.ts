@@ -21,7 +21,20 @@ export class DatosComponent {
   ngOnInit() {
     this.dataProvider.getGames().subscribe((response) => { 
       let dataArray = (response as Game[]); 
-      this.games = dataArray.slice(0,10);
+      this.games = dataArray.slice(0,15);
     })
+  }
+  btnDatos(){
+    let btnDatos = document.getElementById('btn-datos') as HTMLButtonElement | null;
+    if(btnDatos != null){
+      btnDatos.addEventListener("click", this.presentar);
+      
+    }
+  }
+  presentar(){
+    let juego = document.getElementById("input-juego") as HTMLInputElement | null;
+    if (juego != null){
+      console.log(juego.value);
+    }
   }
 }

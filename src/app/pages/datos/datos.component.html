@@ -1,17 +1,42 @@
 <!-- Tabla con datos -->
+<div class = "container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-content">
+        <!-- ***** Banner Start ***** -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+              <h1><i class='fas fa-gamepad mx-3'></i>Tabla de Datos de Speedrun<i class='fas fa-gamepad mx-3'></i></h1>
+            </div>
+        </div>
 
-<table>
-    <tbody class="text-white">
-        @for (datum of games; track datum.Game_Id) {
-          <tr>
-              <th> {{  datum["Name"]  }}  </th>
-            <td> {{  datum["Platforms"]  }}  </td>
-            <td> {{  datum["Total_Runs"]  }} </td>
-          </tr>
-        } @empty {
-          <tr>
-            <td colspan="4" class="text-center">Aún no hay datos</td>
-          </tr>
-        }
-    </tbody>
-</table>
+        <div class="input-group py-4">
+          <h6 class = "text-white fw-bolder px-4 mt-2">Ingrese nombre del juego: </h6>
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id = "input-juego"/>
+          <button type="button" class="btn btn-outline-primary" id = "btn-datos">Buscar datos</button>
+        </div>
+
+        <table>
+          <tbody class="text-white">
+            <tr>
+              <th class="bg-white text-dark text-center">JUEGO</th>
+              <th class="bg-white text-dark text-center">PLATAFORMAS</th>
+              <th class="bg-white text-dark text-center">TOTAL DE RUNS</th>
+            </tr>
+              @for (datum of games; track datum.Game_Id) {
+                <tr>
+                  <th class = "border border-white"> {{  datum["Name"]  }}  </th>
+                  <td class = "border border-white"> {{  datum["Platforms"]  }}  </td>
+                  <td class = "border border-white"> {{  datum["Total_Runs"]  }} </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="4" class="text-center">Aún no hay datos</td>
+                </tr>
+              }
+          </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>

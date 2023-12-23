@@ -13,6 +13,16 @@ export class ProveedorService {
   getGames() {
     return this.http.get(this.games);
   }
+  getGamesByName(gameName:string){
+    let gameList = this.getGames();
+    let filterList = [];
+    for (let game in gameList){
+      if (game[3].startsWith(gameName)){
+        filterList.push(game);
+      }
+    }
+    return filterList;
+  }
   getCategories(){
     return this.http.get(this.category);
   }
