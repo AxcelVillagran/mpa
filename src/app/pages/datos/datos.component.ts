@@ -21,23 +21,33 @@ export class DatosComponent {
   ngOnInit() {
     this.dataProvider.getGames().subscribe((response) => { 
       let dataArray = (response as Game[]); 
-      this.games = dataArray.slice(0,20);
+      this.games = dataArray.slice(0,999);
     })
+    this.loadNameSelector();
     this.loadPlatform();
   }
-  btnDatos(){
-    let btnDatos = document.getElementById('btn-datos') as HTMLButtonElement | null;
-    if(btnDatos != null){
-      btnDatos.addEventListener("click", this.presentar);
-      
-    }
-  }
-  presentar(){
-    let juego = document.getElementById("input-juego") as HTMLInputElement | null;
+
+  filtrarPorNombre = async(event: Event): Promise<void> =>{
+    let juego: string = (event.target as HTMLInputElement).value;
+    let trJuegos = document.getElementsByClassName("filaJuego");
     if (juego != null){
-      console.log(juego.value);
+      if((juego)!=""){
+        for (var i = 0; i < trJuegos.length; i++) {
+          let nombreJuego=trJuegos[i].getElementsByClassName("nombre-juego")[0].innerHTML
+          if(nombreJuego.slice(1,nombreJuego.length).startsWith(juego)){
+            trJuegos[i].classList.remove("ocultar");
+          }else{
+            trJuegos[i].classList.add("ocultar");
+          }
+      }
+      }else{
+        for (var i = 0; i < trJuegos.length; i++) {
+          trJuegos[i].classList.remove("ocultar");
+        }
+      }
     }
   }
+
   filtrarPlataformas = async(event: Event): Promise<void> =>{
     let selectedPlatform: string = (event.target as HTMLInputElement).value;
     console.log(selectedPlatform);
@@ -61,12 +71,19 @@ export class DatosComponent {
       }
     }
   }
+
   loadPlatform = () => {
 
     let selectElement: HTMLSelectElement | null = document.querySelector("select")
-    //let selectElement: HTMLSelectElement | null = document.querySelector("select")
     if(selectElement!=null){
       selectElement.addEventListener("change", this.filtrarPlataformas)
+    }
+  }
+  
+  loadNameSelector = () => {
+    let selectElement = document.querySelector("input") as HTMLInputElement | null;
+    if(selectElement!=null){
+      selectElement.addEventListener("change", this.filtrarPorNombre)
     }
   }
 }

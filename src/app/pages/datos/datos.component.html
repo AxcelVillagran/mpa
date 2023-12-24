@@ -7,35 +7,33 @@
         <div class = "main-profile">
           <div class="row text-center">
               <div class="col-lg-12 heading-section">
-                <h1><i class='fas fa-gamepad mx-3'></i><em>Tabla de Datos de</em> Speedrun<i class='fas fa-gamepad mx-3'></i></h1>
+                <h1><i class='fas fa-gamepad mx-3'></i><em>Tabla de Datos de</em> Juegos<i class='fas fa-gamepad mx-3'></i></h1>
               </div>
           </div>
+          <div class = "pb-4">
+            <div class="input-group py-4">
+              <h6 class = "text-white fw-bolder px-4 mt-2">Ingrese nombre del juego: </h6>
+              <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id = "input-juego"/>
+            </div>
 
-          <div class="input-group py-4">
-            <h6 class = "text-white fw-bolder px-4 mt-2">Ingrese nombre del juego: </h6>
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id = "input-juego"/>
-            <div class="col-lg-12 text-center my-2">
-              <button type="submit" class="btn btn-pink text-center">Enviar consulta</button>
+            <div class="input-group pb-1">
+              <h6 class = "text-white fw-bolder px-4 mt-2">Plataformas: </h6>
+              <select class="form-control rounded form-select"
+                              aria-label="Default select example" id="plataformaSelect">
+                              <option selected>Todas</option>
+                              <option value="PC">PC</option>
+                              <option value="PlayStation">PlayStation</option>
+                              <option value="Xbox One">Xbox One</option>
+                              <option value="Android">Android</option>
+                              <option value="iOS">iOS</option>
+                              <option value="Wii">Wii</option>
+                              <option value="Switch">Switch</option>
+                          </select>
             </div>
           </div>
 
-          <div class="input-group py-4">
-            <h6 class = "text-white fw-bolder px-4 mt-2">Plataformas: </h6>
-            <select class="form-control rounded form-select"
-                            aria-label="Default select example" id="plataformaSelect">
-                            <option selected>Todas</option>
-                            <option value="PC">PC</option>
-                            <option value="PlayStation">PlayStation</option>
-                            <option value="Xbox One">Xbox One</option>
-                            <option value="Android">Android</option>
-                            <option value="iOS">iOS</option>
-                            <option value="Wii">Wii</option>
-                            <option value="Switch">Switch</option>
-                        </select>
-          </div>
-
           <div class = "main-info header-text">
-            <table class = "table">
+            <table class = "table align-middle">
               <tbody class="text-white text-center ">
                 <tr>
                   <th class="bg-white text-dark text-center">JUEGO</th>
@@ -44,7 +42,7 @@
                 </tr>
                 @for (datum of games; track datum.Game_Id) {
                   <tr class="filaJuego">
-                    <th class = "border border-white text-white"> {{  datum["Name"]  }}  </th>
+                    <th class = "border border-white text-white nombre-juego"> {{  datum["Name"]  }}  </th>
                     <td class = "border border-white text-white plataformas"> {{  datum["Platforms"]  }}  </td>
                     <td class = "border border-white text-white"> {{  datum["Total_Runs"].slice(0,datum["Total_Runs"].length-2)  }} </td>
                   </tr>
