@@ -19,6 +19,21 @@
             </div>
           </div>
 
+          <div class="input-group py-4">
+            <h6 class = "text-white fw-bolder px-4 mt-2">Plataformas: </h6>
+            <select class="form-control rounded form-select"
+                            aria-label="Default select example" id="plataformaSelect">
+                            <option selected>Todas</option>
+                            <option value="PC">PC</option>
+                            <option value="PlayStation">PlayStation</option>
+                            <option value="Xbox One">Xbox One</option>
+                            <option value="Android">Android</option>
+                            <option value="iOS">iOS</option>
+                            <option value="Wii">Wii</option>
+                            <option value="Switch">Switch</option>
+                        </select>
+          </div>
+
           <div class = "main-info header-text">
             <table class = "table">
               <tbody class="text-white text-center ">
@@ -28,9 +43,9 @@
                   <th class="bg-white text-dark text-center">TOTAL RUNS</th>
                 </tr>
                 @for (datum of games; track datum.Game_Id) {
-                  <tr>
+                  <tr class="filaJuego">
                     <th class = "border border-white text-white"> {{  datum["Name"]  }}  </th>
-                    <td class = "border border-white text-white"> {{  datum["Platforms"]  }}  </td>
+                    <td class = "border border-white text-white plataformas"> {{  datum["Platforms"]  }}  </td>
                     <td class = "border border-white text-white"> {{  datum["Total_Runs"].slice(0,datum["Total_Runs"].length-2)  }} </td>
                   </tr>
                 } @empty {

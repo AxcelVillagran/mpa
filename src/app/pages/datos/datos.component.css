@@ -33,3 +33,7 @@
     position: relative;
     overflow: hidden;
 }
+
+.ocultar{
+    display:none;
+}

@@ -23,6 +23,7 @@ export class DatosComponent {
       let dataArray = (response as Game[]); 
       this.games = dataArray.slice(0,20);
     })
+    this.loadPlatform();
   }
   btnDatos(){
     let btnDatos = document.getElementById('btn-datos') as HTMLButtonElement | null;
@@ -35,6 +36,37 @@ export class DatosComponent {
     let juego = document.getElementById("input-juego") as HTMLInputElement | null;
     if (juego != null){
       console.log(juego.value);
+    }
+  }
+  filtrarPlataformas = async(event: Event): Promise<void> =>{
+    let selectedPlatform: string = (event.target as HTMLInputElement).value;
+    console.log(selectedPlatform);
+    //let seleccionado = document.getElementById("plataformaSelect") as HTMLInputElement | null;
+    let trJuegos = document.getElementsByClassName("filaJuego");
+    if (selectedPlatform != null){
+      if((selectedPlatform)!="Todas"){
+        for (var i = 0; i < trJuegos.length; i++) {
+          let plataformas=trJuegos[i].getElementsByClassName("plataformas")[0].innerHTML
+          if(plataformas.includes(selectedPlatform)){
+            trJuegos[i].classList.remove("ocultar");
+          }else{
+            trJuegos[i].classList.add("ocultar");
+          }
+      
+      }
+      }else{
+        for (var i = 0; i < trJuegos.length; i++) {
+          trJuegos[i].classList.remove("ocultar");
+        }
+      }
+    }
+  }
+  loadPlatform = () => {
+
+    let selectElement: HTMLSelectElement | null = document.querySelector("select")
+    //let selectElement: HTMLSelectElement | null = document.querySelector("select")
+    if(selectElement!=null){
+      selectElement.addEventListener("change", this.filtrarPlataformas)
     }
   }
 }
